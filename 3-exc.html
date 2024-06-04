@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Average Calculator</title>
+    <style>
+      body {
+        text-align: center;
+        margin-top: 50px;
+      }
+
+      .number-input {
+        padding: 10px;
+        font-size: 16px;
+      }
+
+      .calculate-btn {
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+        background-color: #1bca35;
+        color: #000;
+        border: none;
+        border-radius: 5px;
+        margin-left: 10px;
+      }
+
+      .result {
+        margin-top: 20px;
+        font-size: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Average Calculator</h1>
+    <input
+      type="text"
+      class="number-input"
+      id="numberInput"
+      placeholder="Enter numbers separated by colons"
+    />
+    <button class="calculate-btn" id="calculateBtn">Calculate Average</button>
+    <div class="result" id="result"></div>
+
+    <script>
+      const numberInput = document.getElementById("numberInput");
+      const calculateBtn = document.getElementById("calculateBtn");
+      const resultDiv = document.getElementById("result");
+
+      calculateBtn.onclick = function () {
+        const input = numberInput.value;
+        const numbers = input.split(":").map(Number);
+        const sum = numbers.reduce((acc, num) => acc + num);
+        const average = sum / numbers.length;
+
+        resultDiv.textContent = `The average is: ${average}`;
+      };
+    </script>
+  </body>
+</html>
